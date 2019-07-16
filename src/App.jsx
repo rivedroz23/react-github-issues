@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import Home from './Home';
 import Issue from './Issue';
-import axios from 'axios'
+import axios from 'axios';
+import IssueShow from './IssueShow';
 import ReactMarkdown from 'react-markdown'; 
 import {
   BrowserRouter as Router,
@@ -15,7 +16,9 @@ class App extends React.Component {
     issues: []
   }
 
-  componentDidMount = (e) => {
+
+
+  componentDidMount() {
     console.log("blah"); 
     //e.preventDefault()
     axios.get('https://api.github.com/repos/facebook/react/issues?page=1&per_page=100')
@@ -39,8 +42,12 @@ class App extends React.Component {
           <Link to = '/'>Home</Link>
         </nav>
         <Route exact path = '/' component = { Home } />
-        <Route path = '/issues' 
+        <Route exact path = '/issues' 
         render={props => <Issue issues={this.state.issues} {...props}/>} />
+        <Route path = '/issues/:id'
+        render={props => <IssueShow issues={this.state.issues} {...props}/>} />
+
+
       </Router>
 
       

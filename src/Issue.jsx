@@ -1,16 +1,23 @@
 import React, {Component} from 'react';
 import ReactMarkdown from 'react-markdown';
+import {Link} from 'react-router-dom';
 
 function Issue(props) {
   return (
-    <div>
-      <h1>100 Open Issues</h1>
-      <ul> 
-          {props.issues.map(issue => <li key={issue.id}>{issue.title},{issue.state}</li>)}
-     </ul>
+  <div className="issues">
+        {props.issues.map((issue, i) => (
+        <Link to={`/issues/${issue.number}`}>
+            <h4 key={i}>{issue.title}</h4>
+            <p>#{issue.number}</p>
+            </Link>
+
+        ))
+        }
       
-    </div>
+  </div>
+  
   );
+   
 }
 
 export {Issue as default};

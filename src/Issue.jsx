@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactMarkdown from 'react-markdown';
 import {Link} from 'react-router-dom';
 
+
 function Issue(props) {
   return (
   <div className="issues">
@@ -19,5 +20,7 @@ function Issue(props) {
   );
    
 }
+
+
 
 export {Issue as default};

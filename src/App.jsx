@@ -39,8 +39,9 @@ class App extends React.Component {
     return (
       <Router>
         <nav>
-          <Link to = '/'>Home</Link>
+        <Link to = '/'>Home</Link>
         </nav>
+   
         <Route exact path = '/' component = { Home } />
         <Route exact path = '/issues' 
         render={props => <Issue issues={this.state.issues} {...props}/>} />
